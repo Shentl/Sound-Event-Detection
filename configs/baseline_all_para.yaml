@@ -1,0 +1,28 @@
+data:
+    feature: data/dev/feature.csv
+    label: data/dev/label.csv
+    class_indice_file: data/metadata/class_label_indices.txt
+    stratified: True
+dataloader_args:
+    batch_size: 32
+    num_workers: 1
+
+optimizer:
+    type: AdamW
+    args:
+        lr: 0.0005
+
+scheduler_args:
+    'patience': 3
+    'factor': 0.1
+
+model:
+    type: models_baseline
+    args: {}
+
+outputpath: experiments/
+loss: 'BceLoss'
+epochs: 100
+early_stop: 10
+batch_size: 64
+num_workers: 2
